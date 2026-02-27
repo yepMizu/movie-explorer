@@ -44,7 +44,7 @@ export default function Search() {
           </button>
         </div>
 
-        {/* Reusable Grid Component */}
+      
         <MovieGrid movies={movies} />
         
         {!loading && movies.length === 0 && query && (

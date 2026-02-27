@@ -4,7 +4,7 @@ import Link from 'next/link';
 import sitelogo from './Logo.webp'
 export default function Navbar(){
   return (
-    <nav className="z-50 flex items-center justify-between px-8 py-2 bg-transparent text-white h-16.25 w-full">
+    <nav className="z-50 flex items-center justify-between px-8 py-2 bg-[#151A24] text-white h-16.25 w-full">
       <div className="flex items-center gap-2 cursor-pointer">
         <Link href="/"><Image src={sitelogo} alt='Logo' width="110" height="30"></Image></Link>
         

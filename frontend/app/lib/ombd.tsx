@@ -1,5 +1,3 @@
-
-
 export interface Movie {
   Title: string;
   Year: string;
@@ -8,25 +6,28 @@ export interface Movie {
   Poster: string;
 }
 
-export const fetchMovies = async (query: string): Promise<Movie[]> => {
+
+export async function fetchMovies(query: string): Promise<Movie[]> {
   if (!query) return [];
 
-  const apiKey = process.env.NEXT_PUBLIC_OMDB_API_KEY;
-  
   try {
-    // We use "s=" to get an array of multiple results
     const res = await fetch(
-      `https://www.omdbapi.com/?s=${encodeURIComponent(query)}&apikey=${apiKey}`
+      `https://www.omdbapi.com/?apikey=${process.env.NEXT_PUBLIC_OMDB_API_KEY}&s=${query}`
     );
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch movies");
+    }
+
     const data = await res.json();
 
-    if (data.Response === "True") {
-      console.log(data)
-      return data.Search; // OMDb returns a "Search" array
+    if (data.Response === "False") {
+      return [];
     }
-    return [];
+
+    return data.Search || [];
   } catch (error) {
     console.error("OMDb Fetch Error:", error);
     return [];
   }
-};
+}

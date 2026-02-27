@@ -14,8 +14,8 @@ export const fetchTrendingMovies = async (): Promise<TMDBMovie[]> => {
 
   try {
     const res = await fetch(
-      `https://api.themoviedb.org/3zc/trending/movie/day?api_key=${apiKey}`,
-      { next: { revalidate: 3600 } } // cache for 1 hour
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}`,
+      { next: { revalidate: 3600 } }
     );
 
     if (!res.ok) {
