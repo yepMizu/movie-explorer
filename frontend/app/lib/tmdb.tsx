@@ -29,3 +29,5 @@ export const fetchTrendingMovies = async (): Promise<TMDBMovie[]> => {
     return [];
   }
 };
+
+

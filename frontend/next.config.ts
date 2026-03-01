@@ -1,23 +1,13 @@
-// /** @type {import('next').NextConfig} */
-// const nextConfig = {
-//   images: {
-//     remotePatterns: [
-//       {
-//         protocol: 'https',
-//         hostname: 'image.tmdb.org',
-//         pathname: '/t/p/**',
-//       },
-//     ],
-//   },
-// };
+import type { NextConfig } from "next";
 
-// module.exports = nextConfig;
-
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig: NextConfig = {
   images: {
-    domains: ["m.media-amazon.com", "image.tmdb.org"],
+    domains: [
+      "m.media-amazon.com",
+      "image.tmdb.org",
+      "via.placeholder.com", 
+    ],
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
