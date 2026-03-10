@@ -39,8 +39,12 @@ jobs:
         run: |
           npm install
 
+
+
       - name: Build Frontend
         working-directory: frontend
         run: |
           # Add any build commands for your Next.js frontend
           npm run build
+
+      
